@@ -167,8 +167,38 @@
                       </TableRowGroup>
                 </Table>
                 <Paragraph TextIndent="100" Foreground="Gray" TextAlignment="Right" FontSize="10">
-                *интервалы в значениях периодов показывают либо границы их изменения в течение времени, либо границы их колебания в послевоенный период.
+                    *интервалы в значениях периодов показывают либо границы их изменения в течение времени, либо границы их колебания в послевоенный период.
                 </Paragraph>
+                <Paragraph>
+                    Перечень циклов:
+                </Paragraph>
+                <List MarkerStyle="Decimal" MarkerOffset="5">
+                    <List.Resources>
+                        <Style TargetType="Paragraph">
+                            <Setter Property="TextIndent" Value="0"/>
+                            <Setter Property="KeepTogether" Value="True"/>
+                            <Setter Property="TextAlignment" Value="Left"/>
+                        </Style>
+                    </List.Resources>
+                    <ListItem>
+                        <Paragraph>Инвестиционный цикл</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Малый цикл</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Цикл Кондратьева</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Военный цикл</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Цикл 1973 года</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Цикл 1982 года</Paragraph>
+                    </ListItem>
+                </List>
                 <Paragraph>
                 Наряду с указанными относительно регулярными циклами отмечаются также циклические колебания экономической динамики, индуцированные внешнеэкономическими шоками (вызовами), например, ростом военных заказов в 1940 - 1944 годах и резкими всплесками нефтяных цен в конце 1973 года и в 1981 - 1982 годах. Кризисы нефтяных цен стали вызовами для американской экономики. Индуцированный ими заказ на разработку энергосберегающих и ресурсосберегающих и других эффективных технологий стал мощным импульсом для развития американской экономики в последующие 7 - 10 лет. В результате американская экономика перешла на новый технологический уровень и новый относительно стационарный режим.
                 </Paragraph>
