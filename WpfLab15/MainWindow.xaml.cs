@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.Windows.Xps;
 using System.Windows.Xps.Packaging;
 using System.IO;
+using System.Diagnostics;
+using System.Windows.Markup;
+using System.Net.Security;
 
 namespace WpfLab15
 {
@@ -27,22 +30,45 @@ namespace WpfLab15
         {
             InitializeComponent();
         }
+        // не забыть подключить using System.Diagnostics;using System.Windows.Navigation;
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            XpsDocument doc = new XpsDocument("1.xps", FileAccess.Write);
-            XpsDocumentWriter writer=XpsDocument.CreateXpsDocumentWriter(doc);
-            writer.Write(docViewer.Document as FixedDocument);
-            doc.Close();
+            
+            
+                using (FileStream fs = File.Open("1.xaml", FileMode.OpenOrCreate))
+                {
+
+                    docViewer.Document = XamlReader.Load(fs) as FlowDocument;//Исключение, если сначала очистить, затем сохранить, а затем попробовать загрузить. (без сохранения очищенного docViewer работает) 
+
+                }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            XpsDocument doc = new XpsDocument("2.xps", FileAccess.Read);
-            docViewer.Document = doc.GetFixedDocumentSequence();
-            doc.Close();
+            
+                using (FileStream fs = File.Open("1.xaml", FileMode.Create))
+                {
+                    if (docViewer.Document != null)
+                    {
+                        XamlWriter.Save(docViewer.Document, fs);
+                    }
+                }
+            
         }
 
-
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            
+                docViewer.ClearValue(FlowDocumentReader.DocumentProperty);
+                       
+        }
     }
 }

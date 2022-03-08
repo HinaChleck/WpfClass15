@@ -6,23 +6,225 @@
         xmlns:local="clr-namespace:WpfLab15"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TableCell" >
+            <Setter Property="BorderBrush" Value="LightSkyBlue" />
+            <Setter Property="BorderThickness" Value="0,1,1,0" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Paragraph" >
+            <Setter Property="TextIndent" Value="25" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <DocumentViewer x:Name="docViewer" Grid.Row="0">
-            <FixedDocument>
-                <PageContent>
-                    <FixedPage>
-                        <TextBox Text="Hello!"/>
-                    </FixedPage>
-                </PageContent>
-            </FixedDocument>
-        </DocumentViewer>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <Button Content="Сохранить" Margin="3" Padding="3" Click="Button_Click" />
-            <Button Content="Загрузить" Margin="3" Padding="3" Click="Button_Click_1" />
-        </StackPanel>
+
+        <UniformGrid  Columns="3" Rows="1" Height="30" Margin="2">
+            <Button Content="Загрузить" Width="Auto" Margin="2" Foreground="Black" Background="LightSkyBlue" Click="Button_Click"  />
+            <Button Content="Сохранить" Width="Auto" Margin="2" Foreground="Black" Background="LightSkyBlue" Click="Button_Click_1" />
+            <Button Content="Очистить" Width="Auto" Margin="2" Foreground="Black" Background="LightSkyBlue" Click="Button_Click_2" />
+            
+            
+        </UniformGrid>
+        <FlowDocumentReader x:Name="docViewer" Grid.Row="1">
+            <FlowDocument>
+                <Paragraph Foreground="CadetBlue" FontWeight="Bold" FontFamily="Arial" TextAlignment="Center" TextIndent="0" >
+                    МИРОВЫЕ ЦИКЛИЧЕСКИЕ КОЛЕБАНИЯ И ИХ ВЛИЯНИЕ НА РОССИЙСКУЮ ЭКОНОМИКУ
+                </Paragraph>
+                <Paragraph>
+                    За последние десятилетия мировая экономика прошла через несколько волн циклических кризисов. Определяющими для их формирования были циклические процессы, происходящие в экономике США. Для выявления циклов использован подход, совмещающий спектральный, историко-логический и экономический анализ динамики американской экономики в послевоенный период. Наиболее заметными были циклические колебания экономической динамики США с периодом около 10 лет и с характерными спадами или приостановками роста в 1981 - 1983, 1991, 2001 и 2008 - 2010 годах. В теории циклов колебания с таким периодом известны как циклы К. Жюгляра. Наряду с ними выделяются и более короткие циклические колебания экономической активности (бизнес-циклы Дж. Китчина) с периодом около 5 лет и более длинные с периодом 17 - 18 лет, а также длинные волны в экономической динамике, известные как волны Н. Кондратьева и связанные с крупными технологическими новациями, определяющими, по сути, смену технологических укладов. Последняя такая волна, индуцированная с развитием и внедрением IT-технологий, практически завершилась в начале текущего столетия.
+                </Paragraph>
+                <Paragraph FontStyle="Italic" TextAlignment="Center" KeepWithNext="True">
+                    Динамика ВВП США:фактические значения и расчетные (прогнозные) значения по сумме шести основных экономических циклов США
+                </Paragraph>
+                <BlockUIContainer x:Name="Pic1">
+                    <Image Source="Data\Us.png"/>
+                </BlockUIContainer>
+                <Paragraph Foreground="Gray" TextAlignment="Center" FontSize="10">
+                    Рис.1
+                </Paragraph>
+
+                <Paragraph KeepWithNext="True">
+                    <Italic>Основные параметры циклов США представлены в таблице</Italic>
+                </Paragraph>
+                <Table BorderBrush="LightSkyBlue" BorderThickness="2" CellSpacing="0">
+                    <Table.Resources>
+                        <Style TargetType="Paragraph">
+                            <Setter Property="TextIndent" Value="0"/>
+                            <Setter Property="KeepTogether" Value="True"/>
+                            <Setter Property="KeepWithNext" Value="True"/>
+                        </Style>
+                    </Table.Resources>
+                    <Table.Columns>
+                        <TableColumn Width="Auto"/>
+                        <TableColumn Width="Auto"/>
+                        <TableColumn Width="Auto"/>
+                        <TableColumn Width="Auto"/>
+                    </Table.Columns>
+                    <TableRowGroup >
+                        <TableRow>
+                            <TableCell>
+                                
+                            </TableCell>
+                            <TableCell FontWeight="SemiBold">
+                                <Paragraph>Период*, лет</Paragraph>  
+                            </TableCell>
+                            <TableCell FontWeight="SemiBold">
+                                <Paragraph>амплитуда (в 2008 году), в п. пунктах ВВП</Paragraph>
+                            </TableCell>
+                            <TableCell  FontWeight="SemiBold">
+                                <Paragraph>год перехода к положительным темпам роста</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>Инвестиционный цикл (J)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>10,2 (9,4 - 10,7)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0,65</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1957</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph TextAlignment="Left">Малый цикл (M)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>5,5 (5 - 6)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0,84</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1960</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph TextAlignment="Left">Цикл Кондратьева (K)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>32 - 36</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0,62</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1987</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph TextAlignment="Left">Военный цикл</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>8,7</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>-</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1940</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph TextAlignment="Left">Цикл 1973 года</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>18,2 (16 - 19)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0,60</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1978</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph TextAlignment="Left">Цикл 1982 года</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>10,6 (9 - 12)</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0,56</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>1985</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                      </TableRowGroup>
+                </Table>
+                <Paragraph TextIndent="100" Foreground="Gray" TextAlignment="Right" FontSize="10">
+                *интервалы в значениях периодов показывают либо границы их изменения в течение времени, либо границы их колебания в послевоенный период.
+                </Paragraph>
+                <Paragraph>
+                Наряду с указанными относительно регулярными циклами отмечаются также циклические колебания экономической динамики, индуцированные внешнеэкономическими шоками (вызовами), например, ростом военных заказов в 1940 - 1944 годах и резкими всплесками нефтяных цен в конце 1973 года и в 1981 - 1982 годах. Кризисы нефтяных цен стали вызовами для американской экономики. Индуцированный ими заказ на разработку энергосберегающих и ресурсосберегающих и других эффективных технологий стал мощным импульсом для развития американской экономики в последующие 7 - 10 лет. В результате американская экономика перешла на новый технологический уровень и новый относительно стационарный режим.
+                </Paragraph>
+                <Paragraph FontStyle="Italic" TextAlignment="Center" KeepWithNext="True">
+                Трансформационный цикл России
+                </Paragraph>
+                <BlockUIContainer>
+                    <Image Source="Data\Rus.png"/>
+                </BlockUIContainer>
+                <Paragraph Foreground="Gray" TextAlignment="Center" FontSize="10">
+                    Рис.2
+                </Paragraph>
+                <Paragraph>
+                    Фактическая динамика ВВП США и сумма шести циклических колебаний, моделируемых гармоническими функциями различных периодов, наложенных на послевоенный тренд американской экономики, представлены на графике (рис. 1).
+                </Paragraph>
+                <Paragraph>
+                        При построении расчетной траектории учтен дополнительно мультипликатор спада, который действует в период кризиса, и отражающий взаимное акселерирующее воздействие финансовой и производственно-экономической составляющих кризиса на этапе спада. Среднее значение кризисного мультипликатора в послевоенный период оценивается в 1,5, но в наиболее глубокие кризисы 1982 и 2009 годов оно возрастало до 1,8 - 2 крат.
+                </Paragraph>
+                <Paragraph>
+                Российской или советской экономике тоже были свойственны циклические колебания: индустриальный цикл с периодом около 10 - 12 лет, послевоенная восстановительная волна и циклы экономических реформ, активные фазы которых отделяются друг от друга интервалом времени примерно в 17 лет. Но все возникшие циклы не приобрели устойчивости и были "заторможены" и "погашены" в период структурной перестройки 1990-х годов, а трансформационный спад, начавшийся в 1989 году, имел переломную точку в 1998 году и сменился экономическим подъемом в начале 2000-х годов, который и завершил основную волну трансформационного цикла к 2008 году (рис. 2). Финансово-экономический кризис 1998 года завершил трансформационный спад и был вызван, в основном, внутренними причинами, но дополнительный импульс ему придало снижение мировых цен на нефть в конце 1997-х начале 1998 года и финансовый кризис, затронувший страны Юго-Восточной Азии.
+                </Paragraph>
+                    <Paragraph>
+                В последнее десятилетие российская экономика все больше встраивается в мировую экономическую систему и в мировые циклические процессы, отвечая им колебаниями своей экономической динамики и одновременно выстраивая под их влиянием свою систему циклов.
+                </Paragraph>
+                <Paragraph>
+                Если мировой кризис 2000 - 2001 годов еще в малой степени повлиял на экономические показатели России, поскольку Россия перед этим только пережила очень глубокий внутренний структурный кризис и находилась на стадии восстановительного роста, то мировой кризис 2008 - 2010 годов оказался значительно более существенным для российской экономики. Падение цен на нефть и внешнего спроса, ипотечный кризис, отток капитала и падение дохода экспортеров мультиплицировано, но не однородно отразилось на динамике отраслей экономики.
+                </Paragraph>
+                <Paragraph>
+                С учетом возросшего воздействия мировых кризисов на российскую экономику при разработке прогноза социально-экономического развития на долгосрочную перспективу важно предвидение возможных спадов активности мировой экономики и оценка последствий их влияния на экономику России.
+                </Paragraph>
+                <Paragraph>
+                    Хотя точное предвидение начала замедления и рецессии мировой экономики весьма затруднительно в силу наложения действия ряда разнонаправленных факторов, как ускоряющих, так и задерживающих переход к очередной фазе развития, тем не менее с достаточно высокой вероятностью можно говорить о неизбежности повторения фаз экономического спада, замедления или рецессии в силу сохранения действия внутренних процессов, формирующих циклическую динамику экономического развития, и прежде всего американской и европейской экономик в их взаимодействии.
+                </Paragraph>
+                <Paragraph>
+                    Соединенные Штаты уже более 80 лет являются главным источником формирования мировых экономических циклов и их экспансии в Европу, а в последнее время и в Россию. В наибольшей степени втянуты в экономическую зависимость от США Великобритания, страны Евросоюза, а в последнее десятилетие и Россия. Зависимость Великобритании и стран Евросоюза от экономической цикличности США иллюстрируется следующим графиком на примере регрессионных зависимостей колебаний ВВП Германии от колебаний ВВП США относительно трендовых значений в послевоенные годы:
+                </Paragraph>
+                <Paragraph>
+                    Степень зависимости достаточно велика, коэффициент регрессии между отклонениями от трендов немецкой и американской экономик составляет около 0,7. Единственно, для Германии в период 1990-х он был несколько ниже этого значения, что было связано с тем, что в этот период Германия была занята в большей степени внутренними проблемами (освоение восточных земель). Обратная зависимость американской экономики от европейской существенно меньше. Вместе с тем некоторая степень "заражения" США кризисом в Европе остается.
+                </Paragraph>
+                <Paragraph>
+                    С учетом исторического анализа экономической динамики американской экономики и определяющих ее факторов можно говорить о трех возможных, но разновероятных сценариях ее развития.
+                </Paragraph>
+                <Paragraph>
+                    Один из них отвечает ситуации инерционного развития уже сформировавшихся циклов без активного формирования новых финансово-инвестиционных волн, в частности, при непринятии активных мер поддержки кризисных экономик и отказе от масштабного использования фондов стабилизации, т.е. в условиях проведения жесткой политики финансовой консолидации, направленной на сокращение государственного долга.
+                </Paragraph>
+                <Paragraph>
+                    <Hyperlink NavigateUri="https://www.consultant.ru/document/cons_doc_LAW_397326/"  Cursor="Hand" RequestNavigate="Hyperlink_RequestNavigate"  >
+                       https://www.consultant.ru/document/cons_doc_LAW_397326/
+                    </Hyperlink>
+                </Paragraph>
+
+                
+
+
+            </FlowDocument>
+            
+        </FlowDocumentReader>
     </Grid>
 </Window>
